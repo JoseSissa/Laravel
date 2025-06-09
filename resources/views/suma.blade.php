@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add two numbers</title>
-</head>
-<body>
+@extends('layouts.app')
+
+@section('content')
     <h1>Add two numbers</h1>
     <form action="/suma" method="post">
         @csrf
@@ -21,5 +16,4 @@
     @if(isset($res))
         <h2>Result: {{ $res }}</h2>
     @endif
-</body>
-</html>
+@endsection
