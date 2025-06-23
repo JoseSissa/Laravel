@@ -1,0 +1,14 @@
+<?php
+
+use App\Http\Controllers\BackendController;
+use Illuminate\Support\Facades\Route;
+
+Route::get('/test', function () {
+    return 'Backend working!';
+});
+
+Route::get('/backend', [BackendController::class, 'getAll']);
+
+Route::get('/backend/{id?}', [BackendController::class, 'get']);
+
+Route::post('/backend', [BackendController::class, 'create']);
