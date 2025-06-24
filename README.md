@@ -61,13 +61,27 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
 
-###Creating a new project
+### Creating a new project
 composer create-project laravel/laravel nameOfProject
 composer install
 
-###Running the server
+### Running the server
 php artisan serve
 php -S localhost:8000 -t public
 
-###Controllers
+### Controllers
 php artisan make:controller nameController <-- Name of the controller always ends with Controller
+
+### Migration
+Create migration
+php artisan make:migration name_of_migration
+
+Agregar cambios a una tabla existente
+php artisan make:migration name_of_migration --table=name_of_table
+
+Execute migration
+php artisan migrate
+
+Revertir una migración
+php artisan migrate:rollback <-- Revertir la última migración
+php artisan migrate:reset <-- Revertir todas las migraciones (WARNING)
