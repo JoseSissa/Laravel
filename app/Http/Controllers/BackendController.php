@@ -42,4 +42,28 @@ class BackendController extends Controller
             'person' => $person,
         ], Response::HTTP_CREATED);
     }
+
+    public function update(Request $request, int $id)
+    {
+        if (isset($this->names[$id]) && isset($id)) {
+            $this->names[$id]["name"] = $request->input("name", 'Default Name');
+            $this->names[$id]["age"] = $request->input("age");
+            return response()->json([
+                'message' => 'Updated person',
+                'person' => $this->names[$id]
+            ]);
+        } else {
+            return response()->json(['error' => 'No such id!'], Response::HTTP_NOT_FOUND);
+        }
+    }
+
+    public function delete(int $id)
+    {
+        if (isset($this->names[$id])) {
+            unset($this->names[$id]);
+            return response()->json(['message' => 'Person deleted successfully!']);
+        } else {
+            return response()->json(['error' => 'Person not found!'], Response::HTTP_NOT_FOUND);
+        }
+    }
 }

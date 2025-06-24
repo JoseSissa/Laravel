@@ -1,0 +1,23 @@
+### Get
+GET http://localhost:8000/api/backend
+
+### Post
+POST http://localhost:8000/api/backend
+Content-Type: application/json
+
+{
+    "name": "John",
+    "age": 25
+}
+
+### Put
+PUT http://localhost:8000/api/backend/1
+Content-Type: application/json
+
+{
+    "name": "John",
+    "age": 25
+}
+
+### Delete
+DELETE http://localhost:8000/api/backend/1
