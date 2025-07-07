@@ -76,7 +76,7 @@ php artisan make:controller nameController <-- Name of the controller always end
 Create migration
 php artisan make:migration name_of_migration
 
-Agregar cambios a una tabla existente
+Add changes to an existing table
 php artisan make:migration name_of_migration --table=name_of_table
 
 Execute migration
@@ -85,3 +85,20 @@ php artisan migrate
 Revertir una migración
 php artisan migrate:rollback <-- Revertir la última migración
 php artisan migrate:reset <-- Revertir todas las migraciones (WARNING)
+
+### Seeder
+
+Create Seeder
+php artisan make:seeder name_of_seeder
+
+Execute Seeder
+php artisan db:seed
+
+Delete and create all data
+php artisan migrate:fresh 
+
+Delete and create all data and execute Seeder
+php artisan migrate:fresh --seed
+
+Execute only one seeder
+php artisan db:seed --class=CategoryTableSeeder
