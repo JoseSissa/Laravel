@@ -102,3 +102,10 @@ php artisan migrate:fresh --seed
 
 Execute only one seeder
 php artisan db:seed --class=CategoryTableSeeder
+
+### Model - factory
+Create a model
+php artisan make:model name_of_model
+
+Create a factory
+php artisan make:factory name_of_factory
