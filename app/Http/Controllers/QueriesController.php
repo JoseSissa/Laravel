@@ -43,4 +43,12 @@ class QueriesController extends Controller
             ->get();
         return response()->json($products);
     }
+
+    public function searchString(string $value)
+    {
+        $products = Product::where('description', 'like', '%' . $value . '%')
+            ->orWhere('name', 'like', '%' . $value . '%')
+            ->get();
+        return response()->json($products);
+    }
 }
