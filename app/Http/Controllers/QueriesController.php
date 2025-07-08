@@ -51,4 +51,26 @@ class QueriesController extends Controller
             ->get();
         return response()->json($products);
     }
+
+    public function advancedSearch(Request $request)
+    {
+        $products = Product::where(function ($query) use ($request) {
+            if ($request->input('name')) {
+                $query->where('name', 'like', '%' . $request->input('name') . '%');
+            }
+        })
+            ->where(function ($query) use ($request) {
+                if ($request->input('description')) {
+                    $query->where('description', 'like', '%' . $request->input('description') . '%');
+                }
+            })
+            ->where(function ($query) use ($request) {
+                if ($request->input('price')) {
+                    $query->where('price', '>', $request->input('price'));
+                }
+            })
+            ->get();
+
+        return response()->json($products);
+    }
 }

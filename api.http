@@ -29,3 +29,13 @@ GET http://localhost:8000/api/query
 
 ### Get by id
 GET http://localhost:8000/api/query/1
+
+### Advanced Search
+POST http://localhost:8000/api/query/method/advancedSearch
+Content-Type: application/json
+
+{
+    "name": "li",
+    "description": "li",
+    "price": 100
+}
