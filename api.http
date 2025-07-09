@@ -45,3 +45,13 @@ Content-Type: application/json
 
 ### Get
 GET http://127.0.0.1:8000/api/product?per_page=2&page=5
+
+### Post
+POST http://127.0.0.1:8000/api/product
+Content-Type: application/json
+
+{
+    "description": "Some description",
+    "price": 25.5,
+    "category_id": 20
+}
