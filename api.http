@@ -51,7 +51,22 @@ POST http://127.0.0.1:8000/api/product
 Content-Type: application/json
 
 {
+    "name": "Jose",
     "description": "Some description",
     "price": 25.5,
-    "category_id": 20
+    "category_id": 2
 }
+
+### Put
+PUT http://127.0.0.1:8000/api/product/1
+Content-Type: application/json
+
+{
+    "name": "Papas",
+    "description": "Papas saladas",
+    "price": 25.5,
+    "category_id": 1
+}
+
+### Delete
+DELETE http://127.0.0.1:8000/api/product/3

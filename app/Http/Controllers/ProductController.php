@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UpdateProductRequest;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
@@ -42,5 +43,29 @@ class ProductController extends Controller
         } catch (ValidationException $err) {
             return response()->json($err->errors(), Response::HTTP_UNPROCESSABLE_ENTITY);
         }
+    }
+
+    public function update(UpdateProductRequest $request, Product $product)
+    {
+        try {
+            $validatedData = $request->validated();
+            $product->update($validatedData);
+
+            return response()->json([
+                'message' => 'Product updated successfully',
+                'product' => $product,
+            ], Response::HTTP_OK);
+        } catch (ValidationException $err) {
+            return response()->json($err->errors(), Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
+    }
+
+    public function destroy(Product $product)
+    {
+        $product->delete();
+
+        return response()->json([
+            'message' => 'Product deleted successfully',
+        ], Response::HTTP_OK);
     }
 }

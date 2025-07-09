@@ -109,3 +109,7 @@ php artisan make:model name_of_model
 
 Create a factory
 php artisan make:factory name_of_factory
+
+
+### Form request
+php artisan make:request name_of_request

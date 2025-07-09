@@ -18,6 +18,12 @@ class Product extends Model
         'category_id'
     ];
 
+    protected $hidden = [
+        'created_at',
+        'updated_at',
+        'deleted_at'
+    ];
+
     // Foreign key
     public function category()
     {
