@@ -39,3 +39,9 @@ Content-Type: application/json
     "description": "li",
     "price": 100
 }
+
+
+# CRUD EXERCISE
+
+### Get
+GET http://127.0.0.1:8000/api/product?per_page=2&page=5
