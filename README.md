@@ -113,3 +113,6 @@ php artisan make:factory name_of_factory
 
 ### Form request
 php artisan make:request name_of_request
+
+### Middleware
+php artisan make:middleware name_of_middleware
