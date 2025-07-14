@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class CheckValueInHeader
+class UppercaseName
 {
     /**
      * Handle an incoming request.
@@ -15,10 +15,9 @@ class CheckValueInHeader
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if ($request->header('Token') !== '123456') {
-            return response()->json(['message' => 'Access denied'], Response::HTTP_FORBIDDEN);
+        if ($request->has('name')) {
+            $request->merge(['name' => strtoupper($request->input('name'))]);
         }
-
         return $next($request);
     }
 }

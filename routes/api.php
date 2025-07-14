@@ -4,6 +4,7 @@ use App\Http\Controllers\BackendController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\QueriesController;
 use App\Http\Middleware\CheckValueInHeader;
+use App\Http\Middleware\UppercaseName;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/test', function () {
@@ -37,4 +38,4 @@ Route::get('/query/method/join', [QueriesController::class, 'join']);
 
 Route::get('/query/method/groupBy', [QueriesController::class, 'groupBy']);
 
-Route::apiResource('/product', ProductController::class)->middleware(CheckValueInHeader::class);
+Route::apiResource('/product', ProductController::class)->middleware([CheckValueInHeader::class, UppercaseName::class]);

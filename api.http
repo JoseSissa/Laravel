@@ -44,11 +44,16 @@ Content-Type: application/json
 # CRUD EXERCISE
 
 ### Get
+GET http://127.0.0.1:8000/api/product
+Token: 123456
+
+### Get
 GET http://127.0.0.1:8000/api/product?per_page=10&page=0
 
 ### Post
 POST http://127.0.0.1:8000/api/product
 Content-Type: application/json
+Token: 123456
 
 {
     "name": "Jose",
