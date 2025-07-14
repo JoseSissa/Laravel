@@ -30,4 +30,14 @@ class LogRequests
 
         return $next($request);
     }
+
+    public function terminate(Request $request, Response $response): void
+    {
+        Log::info('Respuesta enviada: ', [
+            'status' => $response->getStatusCode(),
+            'content' => $response->getContent(),
+            // 'headers' => $response->headers->all(),
+            // 'body' => $response->getContent(),
+        ]);
+    }
 }
