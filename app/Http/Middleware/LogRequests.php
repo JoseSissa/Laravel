@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Support\Facades\Log;
 
 class LogRequests
 {
@@ -24,7 +25,9 @@ class LogRequests
             'body' => $request->all(),
         ];
 
-        dd($data);
+        // dd($data);
+        Log::info('Solicitud recibida: ', $data);
+
         return $next($request);
     }
 }
