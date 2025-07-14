@@ -11,7 +11,7 @@ Route::get('/test', function () {
     return 'Backend working!';
 });
 
-Route::get('/backend', [BackendController::class, 'getAll'])->middleware('CheckValue');
+Route::get('/backend', [BackendController::class, 'getAll'])->middleware('CheckValue:4545,pato,otroValor');
 
 Route::get('/backend/{id?}', [BackendController::class, 'get']);
 
