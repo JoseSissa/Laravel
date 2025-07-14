@@ -14,6 +14,9 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware) {
         // $middleware->append(CheckValueInHeader::class);
+        $middleware->alias([
+            'CheckValue' => CheckValueInHeader::class
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
