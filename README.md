@@ -116,3 +116,15 @@ php artisan make:request name_of_request
 
 ### Middleware
 php artisan make:middleware name_of_middleware
+
+
+### JWT
+
+# Install JWT
+composer require tymon/jwt-auth
+# Publish config - Create config/jwt.php
+php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\LaravelServiceProvider"
+# Create secret
+php artisan jwt:secret
+
+
