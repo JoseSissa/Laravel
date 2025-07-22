@@ -52,6 +52,15 @@ class AuthController extends Controller
             ], Response::HTTP_INTERNAL_SERVER_ERROR);
         }
 
-        return response()->json(['token' => $token]);
+        return $this->responseWithToken($token);
+    }
+
+    protected function responseWithToken($token)
+    {
+        return response()->json([
+            'token' => $token,
+            'token_type' => 'bearer',
+            'expires_in' => auth()->factory()->getTTL() * 60 . ' seconds',
+        ]);
     }
 }
