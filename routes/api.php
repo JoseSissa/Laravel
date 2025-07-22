@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BackendController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\QueriesController;
@@ -43,3 +44,8 @@ Route::apiResource('/product', ProductController::class)->middleware([
     // CheckValueInHeader::class, UppercaseName::class
     LogRequests::class
 ]);
+
+
+Route::post('/register', [AuthController::class, 'register']);
+
+Route::post('/login', [AuthController::class, 'login'])->name('login');
