@@ -88,4 +88,19 @@ class AuthController extends Controller
             ], Response::HTTP_INTERNAL_SERVER_ERROR);
         }
     }
+
+    public function refresh()
+    {
+        try {
+            $token = JWTAuth::getToken();
+            $newToken = JWTAuth::refresh();
+            JWTAuth::invalidate($token);
+            return $this->responseWithToken($newToken);
+        } catch (JWTException $e) {
+            return response()->json([
+                'message' => 'No se pudo refrescar el token',
+                'error' => $e->getMessage(),
+            ], Response::HTTP_INTERNAL_SERVER_ERROR);
+        }
+    }
 }
