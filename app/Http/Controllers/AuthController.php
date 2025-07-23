@@ -63,4 +63,12 @@ class AuthController extends Controller
             'expires_in' => auth()->factory()->getTTL() * 60 . ' seconds',
         ]);
     }
+
+    public function who()
+    {
+        $user = auth()->user();
+        return response()->json([
+            'message' => 'Hola ' . $user->name,
+        ]);
+    }
 }
