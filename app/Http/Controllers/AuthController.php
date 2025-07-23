@@ -7,6 +7,7 @@ use App\Http\Requests\UserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Tymon\JWTAuth\Contracts\Providers\JWT;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use Tymon\JWTAuth\Facades\JWTAuth;
 
@@ -70,5 +71,21 @@ class AuthController extends Controller
         return response()->json([
             'message' => 'Hola ' . $user->name,
         ]);
+    }
+
+    public function logout()
+    {
+        try {
+            $toker = JWTAuth::getToken();
+            JWTAuth::invalidate($toker);
+            return response()->json([
+                'message' => 'Sesión cerrada',
+            ], Response::HTTP_OK);
+        } catch (JWTException $e) {
+            return response()->json([
+                'message' => 'No se pudo cerra la sesión el token no es válido',
+                'error' => $e->getMessage(),
+            ], Response::HTTP_INTERNAL_SERVER_ERROR);
+        }
     }
 }
